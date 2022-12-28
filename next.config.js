@@ -1,6 +1,13 @@
 const webpack = require("webpack");
 
-const { parsed: myEnv } = require("dotenv").config();
+// Needed for render.com deployment
+const { parsed: myEnv } = require("dotenv").config(
+  process.env.NODE_ENV === "development"
+    ? null
+    : {
+        path: "/etc/secrets/.env",
+      }
+);
 
 // Extend your Next config for advanced behavior
 // See https://nextjs.org/docs/api-reference/next.config.js/introduction
@@ -20,7 +27,8 @@ const securityHeaders = [
 ];
 
 let nextConfig = {
-  webpack: (config, { isServer }) => {
+  webpack: (config) => {
+    config.plugins.push(new webpack.EnvironmentPlugin(myEnv));
     config.module.rules.push({
       test: /\.svg$/i,
       issuer: /\.[jt]sx?$/,

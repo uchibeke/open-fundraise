@@ -43,30 +43,34 @@ function Contact(props) {
         },
       ],
     };
-    // Show pending indicator
     setPending(true);
 
     investmentHandler
       .invest(chimoneyData)
       .then((res, dd) => {
-        // Clear form
-        reset();
-        // Show success alert message
-        setFormAlert({
-          type: "success",
-          message: "Your interest has been recorded. Please check your email!",
-        });
+        const data = res.data;
+        if (data.status === "error") {
+          setFormAlert({
+            type: "error",
+            message: data.error?.message || data.error,
+          });
+        } else {
+          reset();
+          setFormAlert({
+            type: "success",
+            message:
+              "Your interest has been recorded. Please check your email!",
+          });
+          router.reload();
+        }
       })
       .catch((error) => {
-        // Show error alert message
         setFormAlert({
           type: "error",
           message: error.message,
         });
       })
-      .finally((res) => {
-        // Hide pending indicator
-        router.reload();
+      .finally(() => {
         setPending(false);
       });
   };
