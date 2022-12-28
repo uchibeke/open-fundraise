@@ -21,7 +21,6 @@ const securityHeaders = [
 
 let nextConfig = {
   webpack: (config, { isServer }) => {
-    config.plugins.push(new webpack.EnvironmentPlugin(myEnv));
     config.module.rules.push({
       test: /\.svg$/i,
       issuer: /\.[jt]sx?$/,
