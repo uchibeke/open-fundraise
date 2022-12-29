@@ -53,7 +53,7 @@ function InvestmentSection(props) {
   const [investing, setInvesting] = useState(false);
   const [investmentDetails, setInvestmentDetails] = useState({});
 
-  const investmentInitiated = ({ amount, tierValuation, tierName, index }) => {
+  const investmentInitiated = ({ amount, tierValuation, index }) => {
     if (!Array.isArray(props.investments)) return false;
     const res = props.investments.find((i) => {
       const investment = i.meta.openFundraise;

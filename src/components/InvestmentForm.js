@@ -4,11 +4,11 @@ import Alert from "@material-ui/lab/Alert";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
-import CircularProgress from "@material-ui/core/CircularProgress";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import { useForm } from "react-hook-form";
 import investmentHandler from "util/investment";
 import { useRouter } from "next/router";
+import Loading from "components/Loading";
 
 function Contact(props) {
   const [pending, setPending] = useState(false);
@@ -187,6 +187,7 @@ function Contact(props) {
             </span>
           </Grid>
           <Grid item={true} xs={12}>
+            {pending && <Loading height="20px" />}
             <Button
               variant="contained"
               color="primary"
@@ -194,9 +195,7 @@ function Contact(props) {
               type="submit"
               disabled={pending}
             >
-              {!pending && <span>Send now</span>}
-
-              {pending && <CircularProgress size={28} />}
+              <span>{pending ? "Sending" : "Send now"}</span>
             </Button>
           </Grid>
         </Grid>
