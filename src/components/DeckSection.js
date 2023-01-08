@@ -29,9 +29,9 @@ function VideoSection(props) {
                 maxWidth: "100vw !important",
                 maxHeight: "100vh !important",
               }}
-              allowFullScreen="true"
-              mozallowfullscreen="true"
-              webkitallowfullscreen="true"
+              allowFullScreen={true}
+              mozallowfullscreen={true}
+              webkitallowfullscreen={true}
             ></embed>
           </div>
         </Container>

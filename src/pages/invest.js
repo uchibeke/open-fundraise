@@ -14,7 +14,10 @@ function InvestPage(props) {
     investmentHandler
       .getInvestments({})
       .then(async (res) => {
-        setInvestments(res?.data);
+        if (res?.error) {
+        } else {
+          setInvestments(res?.data);
+        }
       })
       .catch((error) => {})
       .finally(() => {

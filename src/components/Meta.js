@@ -1,24 +1,25 @@
 import React from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
+import config from "util/config";
 
 function Meta(props) {
   const { children, ...customPageMeta } = props;
   const router = useRouter();
+  const title = `${config.companyName}'s Fundraise using Open Fundraise`;
 
   const globalMeta = {
     // Site name
-    siteName: "Open fundraise - Powered by Chimoney",
+    siteName: title,
     domain: "",
     twitterHandle: "@chimoney_io",
   };
 
   // Default meta values for current page (override with props)
   const defaultPageMeta = {
-    title: "Open fundraise - Powered by Chimoney",
-    description: "My app description",
-    image:
-      "https://imagedelivery.net/FWOxhF6qUOoRrmL6RllgbQ/a0f2a5cc-1a79-4090-0746-6362db605a00/public",
+    title: title,
+    description: `Invest in ${config.companyName}. This website is built using Open Fundraise, an open soruce project powered by Chimoney`,
+    image: config.logo,
     type: "website",
   };
 
