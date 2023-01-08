@@ -8,6 +8,7 @@ import * as colors from "@material-ui/core/colors";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { createLocalStorageStateHook } from "use-local-storage-state";
+import config from "util/config";
 
 const themeConfig = {
   // Light theme
@@ -16,7 +17,7 @@ const themeConfig = {
       type: "light",
       primary: {
         // Use hue from colors or hex
-        main: "#670B78",
+        main: config.primaryColorForLightTheme,
         // Uncomment to specify light/dark
         // shades instead of automatically
         // calculating from above value.
@@ -44,7 +45,7 @@ const themeConfig = {
       primary: {
         // Same as in light but we could
         // adjust color hue if needed
-        main: "#b976cb",
+        main: config.primaryColorForDarkTheme,
       },
       secondary: {
         main: "#96F550",

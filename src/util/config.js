@@ -1,10 +1,12 @@
 const config = {
   logo: "https://imagedelivery.net/FWOxhF6qUOoRrmL6RllgbQ/82cf0f6c-6acc-46cb-0345-e7412fe51400/public",
   companyName: "Chimoney",
+  primaryColorForDarkTheme: "#b976cb", // must be hex code
+  primaryColorForLightTheme: "#670B78", // must be hex code
   videoYoutubeURL: process.env.NEXT_YOUTUBE_URL,
   pitcDeckGoogleSlideURL: process.env.NEXT_DECK_URL,
-  SAFEDocumentURL: process.env.NEXT_SAFE_URL,
-  paymentInstructionURL: process.env.NEXT_PAYMENT_URL,
+  SAFEDocumentURL: process.env.NEXT_SAFE_URL, // YC's SAFE
+  paymentInstructionURL: process.env.NEXT_PAYMENT_URL, // A Google Doc link with payment instructions. Will be emailed to the Investor
   investmentTiers: [
     {
       tierName: "Family and Friends: $400,000 Target",
